@@ -1,1 +1,53 @@
-<p>order-details works!</p>
+<!-- 10248 -->
+
+<!-- {{ isParamInURL }} -->
+<div class="container" *ngIf="isParamInURL; else defaultTemplate">
+  <div class="col-8">
+    <h1>
+      Order details Page and your
+      <span class="text-success">Order ID is {{ orderID }} </span>
+    </h1>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <table class="table table-bordered mb-4">
+        <thead>
+          <tr>
+            <th>ShipAddress</th>
+            <th>RequiredDate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orderDetails">
+            <td>
+              {{ order.ShipAddress }}
+            </td>
+            <td>
+              {{ order.RequiredDate }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- {{orderID}} -->
+
+<ng-template #defaultTemplate>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>Order details</h1>
+        <p>
+          Welcome to the Order details page. Seems that you are not selected any
+          value from orders page . So Please select atleast one order . below is
+          the Page
+          <!-- app\orders -->
+          <a class="" routerLink="../orders"> Customer Orders</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</ng-template>

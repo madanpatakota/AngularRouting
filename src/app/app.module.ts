@@ -8,34 +8,40 @@ import { InstructionsComponent } from './instructions/instructions.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { CustomerOrdersComponent } from './customer-orders/customer-orders.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 //Logic imp 
-const routes : Routes = [
+
+
+//order-details/orders
+
+const routes: Routes = [
   {
-    path: 'home', component: HomeComponent
+    path: '', component: HomeComponent
   },
   {
     path: 'aboutus', component: AboutusComponent
-  }
+  },
+  {
+    path: 'orders', component: OrdersComponent
+  },
+  {
+    path: 'order-details', component: OrderDetailsComponent
+  },
+  {
+    path: 'order-details/:orderid', component: OrderDetailsComponent
+  },
+  { path: 'instructions', component: InstructionsComponent }
 ]
-
-// if path is aboutus then show aboutus component
-// if path is home then show home component
-
-// ---------
-// ------------
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     InstructionsComponent,
     OrderDetailsComponent,
-    CustomerOrdersComponent
+    CustomerOrdersComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
