@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-primary text-white">Login</div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter your username"
+                #userName
+              />
+            </div>
+            <div class="m-2">
+              <button class="btn btn-primary" 
+              (click)="evtClick(userName)">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

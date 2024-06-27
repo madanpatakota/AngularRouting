@@ -36,7 +36,6 @@ export class OrderDetailsComponent implements OnInit {
     //while component init i am subscribing the what is the current activate route related parameters
     this.activateRoute.params.subscribe((param) => {
       console.log("current param is ", param);
-
       // {}
       //path: 'order-details/:orderid', component: OrderDetailsComponent
       //param is the object which contains the  { orderid: '10251'} 

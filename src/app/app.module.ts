@@ -9,6 +9,12 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { CustomerOrdersComponent } from './customer-orders/customer-orders.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { OrdersComponent } from './orders/orders.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { canActivateGuard } from './can-activate.guard';
+import { CoreService } from './core.service';
+import { candeactivateGuard } from './candeactivate.guard';
 
 
 //Logic imp 
@@ -30,9 +36,18 @@ const routes: Routes = [
     path: 'order-details', component: OrderDetailsComponent
   },
   {
-    path: 'order-details/:orderid', component: OrderDetailsComponent
+    path: 'order-details/:orderid', 
+    component: OrderDetailsComponent,
+    canActivate : [canActivateGuard],
+    canDeactivate : [candeactivateGuard]
   },
-  { path: 'instructions', component: InstructionsComponent }
+  { path: 'instructions', component: InstructionsComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
+  { 
+     path: '**',
+     component: NotFoundComponent ,
+     data : ["Page : 404 not Found"] }
 ]
 @NgModule({
   declarations: [
@@ -41,13 +56,18 @@ const routes: Routes = [
     InstructionsComponent,
     OrderDetailsComponent,
     CustomerOrdersComponent,
-    OrdersComponent
+    OrdersComponent,
+    LoginComponent,
+    LogoutComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    CoreService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
