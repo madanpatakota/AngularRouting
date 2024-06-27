@@ -27,7 +27,7 @@ const routes: Routes = [
     path: '', component: HomeComponent
   },
   {
-    path: 'aboutus', component: AboutusComponent
+    path: 'aboutus', component: AboutusComponent , canDeactivate : [candeactivateGuard]
   },
   {
     path: 'orders', component: OrdersComponent
@@ -41,7 +41,7 @@ const routes: Routes = [
     canActivate : [canActivateGuard],
     canDeactivate : [candeactivateGuard]
   },
-  { path: 'instructions', component: InstructionsComponent },
+  { path: 'instructions', component: InstructionsComponent  , canActivate : [canActivateGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   { 
